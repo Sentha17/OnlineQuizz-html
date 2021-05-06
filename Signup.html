@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<style>
+    /* The message box is shown when the user clicks on the password field */
+    #message {
+      display:none;
+      color: #000;
+      position: relative;
+    }
+    #message p {
+      font-size: 18px;
+    }
+    /* Add a green text color and a checkmark when the requirements are right */
+    .valid {
+      color: green;
+    }
+    /* Add a red text color and an "x" when the requirements are wrong */
+    .invalid {
+      color: red;
+    }
+    
+    /* The message box is shown when the user clicks on the password field */
+    #message1 {
+      display:none;
+      color: #000;
+      position: relative;
+    }
+    #message1 p {
+      font-size: 18px;
+    }
+    /* Add a green text color and a checkmark when the requirements are right */
+    .valid {
+      color: green;
+    }
+    /* Add a red text color and an "x" when the requirements are wrong */
+    .invalid {
+      color: red;
+    }
+</style>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+<title>SIGN UP</title>
+</head>
+<body>   
+<form onsubmit="signUp()">
+    <br/>
+	<center>
+        <br/>
+        <h1> <center> Sign Up Page</h1>
+        <br/>
+        <input type="text" name="userName" id="userName" placeholder="Enter Your Name"required autofocus><br/>
+        <br/>
+        <input type="number" max="3" name="registerNumber" id="regNumber" placeholder="Enter Register Number"required autofocus><br/>
+        <br/>
+        <input type="password"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}" name="newPassword" id="signupNewPassword" placeholder="Enter New Password" required autofocus><br/>
+        <br/>
+        <input type="password"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}" name="reenter" id="signupReenterPassword" placeholder="Re-Enter New Password" required autofocus><br/>
+        <br/>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="reset"class="btn btn-primary">Reset</button>
+        <br/><br/>
+        <label for="validation" id="loginValidation"  style="color:red;"></label>
+    </center>
+</form>
+<div id="message">
+    <center>
+        <h3>Password must contain the following:</h3>
+        <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+        <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+        <p id="number" class="invalid">A <b>number</b></p>
+        <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+    </center>
+</div>
+<div id="message1">
+        <center>
+            <h3>Password must contain the following:</h3>
+            <p id="letter1" class="invalid">A <b>lowercase</b> letter</p>
+            <p id="capital1" class="invalid">A <b>capital (uppercase)</b> letter</p>
+            <p id="number1" class="invalid">A <b>number</b></p>
+            <p id="length1" class="invalid">Minimum <b>8 characters</b></p>
+        </center>
+</div>
+<script>
+    var passwordMessage = document.getElementById("signupNewPassword");
+    var letter = document.getElementById("letter");
+    var capital = document.getElementById("capital");
+    var number = document.getElementById("number");
+    var length = document.getElementById("length");
+    // When the user clicks on the password field, show the message box
+    passwordMessage.onfocus = function() {
+    document.getElementById("message").style.display = "block";
+    }
+    // When the user clicks outside of the password field, hide the message box
+    passwordMessage.onblur = function() {
+    document.getElementById("message").style.display = "none";
+    }
+    // When the user starts to type something inside the password field
+    passwordMessage.onkeyup = function() {
+    // Validate lowercase letters
+    var lowerCaseLetters = /[a-z]/g;
+    if(passwordMessage.value.match(lowerCaseLetters)) {  
+        letter.classList.remove("invalid");
+        letter.classList.add("valid");
+    } else {
+        letter.classList.remove("valid");
+        letter.classList.add("invalid");
+    }
+
+    // Validate capital letters
+    var upperCaseLetters = /[A-Z]/g;
+    if(passwordMessage.value.match(upperCaseLetters)) {  
+        capital.classList.remove("invalid");
+        capital.classList.add("valid");
+    } else {
+        capital.classList.remove("valid");
+        capital.classList.add("invalid");
+    }
+
+    // Validate numbers
+    var numbers = /[0-9]/g;
+    if(passwordMessage.value.match(numbers)) {  
+        number.classList.remove("invalid");
+        number.classList.add("valid");
+    } else {
+        number.classList.remove("valid");
+        number.classList.add("invalid");
+    }
+    
+    // Validate length
+    if(passwordMessage.value.length >= 8) {
+        length.classList.remove("invalid");
+        length.classList.add("valid");
+    } else {
+        length.classList.remove("valid");
+        length.classList.add("invalid");
+    }
+    }
+
+
+    var reenterPasswordMessage = document.getElementById("signupReenterPassword");
+    var letter1 = document.getElementById("letter1");
+    var capital1 = document.getElementById("capital1");
+    var number1 = document.getElementById("number1");
+    var length1 = document.getElementById("length1");
+    reenterPasswordMessage.onfocus = function() {
+    document.getElementById("message1").style.display = "block";
+    }
+
+    // When the user clicks outside of the password field, hide the message box
+    reenterPasswordMessage.onblur = function() {
+    document.getElementById("message1").style.display = "none";
+    }
+
+    // When the user starts to type something inside the password field
+    reenterPasswordMessage.onkeyup = function() {
+    // Validate lowercase letters
+    var lowerCaseLetters1 = /[a-z]/g;
+    if( reenterPasswordMessage.value.match(lowerCaseLetters1)) {  
+        letter1.classList.remove("invalid");
+        letter1.classList.add("valid");
+    } else {
+        letter1.classList.remove("valid");
+        letter1.classList.add("invalid");
+    }
+    
+    // Validate capital letters
+    var  upperCaseLetters1 = /[A-Z]/g;
+    if(reenterPasswordMessage.value.match(upperCaseLetters1)) {  
+        capital1.classList.remove("invalid");
+        capital1.classList.add("valid");
+    } else {
+        capital1.classList.remove("valid");
+        capital1.classList.add("invalid");
+    }
+
+    // Validate numbers
+    var numbers1 = /[0-9]/g;
+    if( reenterPasswordMessage.value.match(numbers1)) {  
+        number1.classList.remove("invalid");
+        number1.classList.add("valid");
+    } else {
+        number1.classList.remove("valid");
+        number1.classList.add("invalid");
+    }
+    
+    // Validate length
+    if(reenterPasswordMessage.value.length >= 8) {
+        length1.classList.remove("invalid");
+        length1.classList.add("valid");
+    } else {
+        length1.classList.remove("valid");
+        length1.classList.add("invalid");
+    }
+    }
+    function signUp()
+    {
+        event.preventDefault();
+        let signupName=document.querySelector("#userName").value;   
+        let RegNumber=document.querySelector("#regNumber").value;                 
+        let Password=document.querySelector("#signupNewPassword").value;
+        let ReenterPassword=document.querySelector("#signupReenterPassword").value; 
+        let signupPasswordArray=localStorage.getItem("dob");
+        let signupPassword=JSON.parse(signupPasswordArray);
+        let signupRegisterNumberArray=localStorage.getItem("reg");
+        let signupRegisterNumber=JSON.parse(signupRegisterNumberArray);
+        //Validation
+        if(RegNumber>0){
+        if((signupRegisterNumber.includes(RegNumber)==false))
+        {
+            if(Password==ReenterPassword)
+            {
+                if((signupPassword.includes(Password)==false))
+                {
+                    signupRegisterNumber.push(RegNumber);
+                    signupPassword.push(Password);
+                    localStorage.setItem("newnumber",JSON.stringify(signupRegisterNumber));
+                    localStorage.setItem("newpass",JSON.stringify(signupPassword));
+                    window.location.href="Signin.html";
+                }
+                else
+                {
+                    document.getElementById("loginValidation").innerHTML="----Already existing password----";
+                }
+            }	                
+            else
+            {
+                document.getElementById("loginValidation").innerHTML="----Enter the same password----";
+            }
+        }
+        else
+        {
+            document.getElementById("loginValidation").innerHTML="----Register Number already exists----";
+        }
+        }
+        else{
+            document.getElementById("loginValidation").innerHTML="----Enter valid Register Number----";
+        }
+
+    }
+</script>
+</body>    
+</html>

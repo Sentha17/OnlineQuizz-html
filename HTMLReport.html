@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+<title>HTML</title>
+</head>
+<body>
+<h2> <center>HTML QUIZ REPORT</h2>
+<form>
+    <h2><center>Report</center></h2><br/>
+    <!-- Question 1-->
+    <h3 style = "margin-left: 30px;">1. What does HTML stands for?</h3>
+        <input style = "margin-left: 30px;"type="radio" name="question1" id= "q1o1" value="Q1O1"class="form-check-input"> Hypertext Machine language <br>
+        <input style = "margin-left: 30px;"type="radio" name="question1" id= "q1o2" value="Q1O2"class="form-check-input"> Hypertext and links markup language <br/>
+        <input style = "margin-left: 30px;" type="radio" name="question1" id= "q1o3" value="Q1O3"class="form-check-input" checked> <b><i>Hypertext Markup Language</i></b><br>
+        <input style = "margin-left: 30px;"type="radio" name="question1" id= "q1o4" value="Q1O4"class="form-check-input"> Hightext machine language <br/><br/>
+    <button style = "margin-left: 30px;"type="button" class="btn btn-secondary btn-sm" onclick="explanation1()">View Explanation</button>
+    <label style = "margin-left: 30px;" for="explanation1" id="explanation1"></label><br/><br/>
+    <!-- Question 2-->
+    <h3 style = "margin-left: 30px;">2. Which of the following characters indicate closing of a tag?</h3>
+        <input style = "margin-left: 30px;"type="radio" name="question2" id= "q2o1" value="Q2O1"class="form-check-input"> ^ <br>
+        <input style = "margin-left: 30px;"type="radio" name="question2" id= "q2o2" value="Q2O2"class="form-check-input"checked> <b><i>/</i></b><br/>
+        <input style = "margin-left: 30px;"type="radio" name="question2" id= "q2o3" value="Q2O3"class="form-check-input"> \<br/>
+        <input style = "margin-left: 30px;"type="radio" name="question2" id= "q2o4" value="Q2O4"class="form-check-input"> -<br/><br/>
+    <button style = "margin-left: 30px;"type="button" class="btn btn-secondary btn-sm" onclick="explanation2()">View Explanation</button>
+    <label style = "margin-left: 30px;"for="explanation2" id="explanation2"></label><br/><br/>
+    <!-- Question 3-->
+    <h3 style = "margin-left: 30px;">3. How many heading tags are there in HTML5?</h3>
+        <input style = "margin-left: 30px;"type="radio" name="question3" id= "q3o1" value="Q3O1"class="form-check-input"> 2<br>
+        <input style = "margin-left: 30px;"type="radio" name="question3" id= "q3o2" value="Q3O2"class="form-check-input"> 3<br/>
+        <input style = "margin-left: 30px;"type="radio" name="question3" id= "q3o3" value="Q3O3"class="form-check-input"> 5<br/>
+        <input style = "margin-left: 30px;"type="radio" name="question3" id= "q3o4" value="Q3O4"class="form-check-input"checked> <b><i>6</i></b><br/><br/>
+    <button style = "margin-left: 30px;"type="button" class="btn btn-secondary btn-sm" onclick="explanation3()">View Explanation</button>
+    <label style = "margin-left: 30px;" for="explanation3" id="explanation3"></label><br/><br/>
+    <!-- Question 4-->
+    <h3 style = "margin-left: 30px;">4. HTML program is saved using _________ extension.</h3>
+        <input style = "margin-left: 30px;"type="radio" name="question4" id= "q4o1" value="Q4O1"class="form-check-input"> .htl<br>
+        <input style = "margin-left: 30px;"type="radio" name="question4" id= "q4o2" value="Q4O2"class="form-check-input"checked> <b><i>.html</i></b><br/>
+        <input style = "margin-left: 30px;"type="radio" name="question4" id= "q4o3" value="Q4O3"class="form-check-input"> .hml<br/>
+        <input style = "margin-left: 30px;"type="radio" name="question4" id= "q4o4" value="Q4O4"class="form-check-input"> .htlm<br/><br/>
+    <button style = "margin-left: 30px;"type="button"class="btn btn-secondary btn-sm"  onclick="explanation4()">View Explanation</button>
+    <label style = "margin-left: 30px;" for="explanation4" id="explanation4"></label><br/><br/>
+    <!-- Question 5-->
+    <h3 style = "margin-left: 30px;">5. Opening Tag of HTML Tag is called as ________.</h3>
+        <input style = "margin-left: 30px;"type="radio" name="question5" id= "q5o1" value="Q5O1"class="form-check-input"> Closed Tag<br/>
+        <input style = "margin-left: 30px;"type="radio" name="question5" id= "q5o2" value="Q5O2"class="form-check-input"checked> <b><i>Starting Tag</i></b><br/>
+        <input style = "margin-left: 30px;"type="radio" name="question5" id= "q5o3" value="Q5O3"class="form-check-input"> Forward Tag<br/>
+        <input style = "margin-left: 30px;"type="radio" name="question5" id= "q5o4" value="Q5O4"class="form-check-input"> Ending Tag<br/><br/>
+    <button style = "margin-left: 30px;" type="button" class="btn btn-secondary btn-sm" onclick="explanation5()">View Explanation</button>
+    <label style = "margin-left: 30px;" for="explanation5" id="explanation5"></label> <br/><br>
+    <center>
+    <button type="button" class="btn btn-primary" onclick="back()">Back</button>
+    <button type="button" class="btn btn-primary" onclick="exit()">Exit</button>
+    </center>
+</form>
+<script>
+    let htmlExplanationMap = new Map([[1 , "HTML is an acronym that stands for HyperText Markup Language"], 
+    [2 ,"The forward-slash (/) character is used to indicate the closing of a tag in HTML"] ,
+    [3,"There are six different HTML headings which are defined with the h1 to h6 tags"], 
+    [4 ,"The .html or .htm extension both are used to save the HTML program"], 
+    [5 ,"The opening tag is also called as Startin Tag it is always placed at the beginning of the document"]]);
+    function explanation1()
+    {
+        event.preventDefault();
+        document.getElementById("explanation1").innerHTML=htmlExplanationMap.get(1);   
+    }
+    function explanation2()
+    {
+        event.preventDefault();
+        document.getElementById("explanation2").innerHTML=htmlExplanationMap.get(2);   
+    }
+    function explanation3()
+    {
+        event.preventDefault();
+        document.getElementById("explanation3").innerHTML=htmlExplanationMap.get(3);   
+    }
+    function explanation4()
+    {
+        event.preventDefault();
+        document.getElementById("explanation4").innerHTML=htmlExplanationMap.get(4);   
+    }
+    function explanation5()
+    {
+        event.preventDefault();
+        document.getElementById("explanation5").innerHTML=htmlExplanationMap.get(5);   
+    }
+    function back()
+    {
+        event.preventDefault();
+        window.location.href="ListOfSubjects.html";    
+    }
+    function exit()
+    {
+        event.preventDefault();
+        window.location.href="Exit.html";    
+    }
+    
+    
+</script>
+</body>
+</html>

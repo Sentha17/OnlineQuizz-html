@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+<title>JS</title>
+</head>
+<body>
+<h2> <center>JAVA SCRIPT QUIZ</h2>
+<form>
+    <h2 style = "margin-left: 30px;">Instructions</h2>
+        <li style = "margin-left: 30px;">The test contains 5 questions and there is no time limit.</li>
+        <li style = "margin-left: 30px;">Once you select your answer, it can't be undone.</li>
+        <li style = "margin-left: 30px;">You can't select multiple options.</li>
+        <li style = "margin-left: 30px;">You can't exit from the Quiz while you're attending.</li>
+        <li style = "margin-left: 30px;">Each question carry 1 mark each, no negative marking</li>
+    <h2><center>Questions</center></h2>
+    <!-- Question 1-->
+    <h3 style = "margin-left: 30px;">1. JavaScript is the same as Java.</h3>
+        <input type="radio" style = "margin-left: 30px;" name="question1" value="Q1O1"class="form-check-input"> True <br>
+        <input type="radio" style = "margin-left: 30px;" name="question1" value="Q1O2"class="form-check-input"> False<br/><br/>
+    <!-- Question 2-->
+    <h3 style = "margin-left: 30px;">2. Which of the following is correct about features of JavaScript?</h3>
+        <input type="radio" style = "margin-left: 30px;"name="question2"  value="Q2O1"class="form-check-input"> It is a lightweight, interpreted programming language<br>
+        <input type="radio" style = "margin-left: 30px;"name="question2" value="Q2O2"class="form-check-input"> It is designed for creating network-centric applications<br/>
+        <input type="radio" style = "margin-left: 30px;"name="question2" value="Q2O3"class="form-check-input"> It is complementary to and integrated with java<br/>
+        <input type="radio" style = "margin-left: 30px;"name="question2"  value="Q2O4"class="form-check-input"> All of the above<br/><br/>
+    <!-- Question 3-->
+    <h3 style = "margin-left: 30px;">3. Which of the following events occurs when the user clicks on an HTML element?</h3>
+        <input type="radio" style = "margin-left: 30px;" name="question3"  value="Q3O1"class="form-check-input"> onchange<br>
+        <input type="radio" style = "margin-left: 30px;"name="question3" value="Q3O2"class="form-check-input"> onmouseover<br/>
+        <input type="radio" style = "margin-left: 30px;"name="question3" value="Q3O3"class="form-check-input"> onclick<br/>
+        <input type="radio" style = "margin-left: 30px;"name="question3" value="Q3O4"class="form-check-input"> onmouseclick<br/><br/>
+    <!-- Question 4-->
+    <h3 style = "margin-left: 30px;">4. What language defines the behavior of a web page?</h3>
+        <input type="radio" style = "margin-left: 30px;" name="question4" value="Q4O1"class="form-check-input"> HTML<br>
+        <input type="radio" style = "margin-left: 30px;" name="question4" value="Q4O2"class="form-check-input"> Java Script <br/>
+        <input type="radio" style = "margin-left: 30px;" name="question4"  value="Q4O3"class="form-check-input"> CSS<br/>
+        <input type="radio" style = "margin-left: 30px;" name="question4"  value="Q4O4"class="form-check-input"> XML<br/><br/>
+    <!-- Question 5-->
+    <h3 style = "margin-left: 30px;">5. Which of the following is an advantage of using JavaScript?</h3>
+        <input type="radio" style = "margin-left: 30px;" name="question5"  value="Q5O1"class="form-check-input"> Increased interactivity<br/>
+        <input type="radio" style = "margin-left: 30px;" name="question5"  value="Q5O2"class="form-check-input"> Less server interaction<br/>
+        <input type="radio" style = "margin-left: 30px;" name="question5"  value="Q5O3"class="form-check-input"> Immediate feedback from the users<br/>
+        <input type="radio" style = "margin-left: 30px;" name="question5" value="Q5O4"class="form-check-input"> All of the above<br/><br/>
+    <center>
+    <button type="submit" class="btn btn-primary" onclick="javascriptValidation()">Submit</button>
+    <button type="reset"class="btn btn-primary">Reset</button>
+    </center>
+</form>
+<script>
+    function javascriptValidation()
+    {
+        event.preventDefault();
+        let answer1= document.querySelector('input[type=radio][name=question1]:checked').value;
+        let answer2= document.querySelector('input[type=radio][name=question2]:checked').value;
+        let answer3= document.querySelector('input[type=radio][name=question3]:checked').value;
+        let answer4= document.querySelector('input[type=radio][name=question4]:checked').value;
+        let answer5= document.querySelector('input[type=radio][name=question5]:checked').value;
+        let javascriptMark=0;
+        let javaUserArray=[answer1,answer2,answer3,answer4,answer5];
+        let javaAnswerArray=["Q1O2","Q2O4","Q3O3","Q4O2","Q5O4"];
+        for(let i=0; i<=4; i++)
+        {
+            if(javaUserArray[i]==javaAnswerArray[i])
+            {
+                javascriptMark++;
+            }
+        }
+        localStorage.setItem("mark",javascriptMark);
+        window.location.href="DisplayScore.html"; 
+    }
+    
+</script>
+</body>
+</html>
